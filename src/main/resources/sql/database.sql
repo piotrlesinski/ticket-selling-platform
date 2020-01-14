@@ -8,7 +8,10 @@ USE `ticket_selling_platform` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ticket_selling_platform`.`users` (
     `id` INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Primary key of the table',
-    `username` VARCHAR(255) UNIQUE NOT NULL,
+    `first_name` VARCHAR(255) NOT NULL COMMENT 'Firts name',
+    `last_name` VARCHAR(255) NOT NULL COMMENT 'Last name',
+    `email` VARCHAR(255) UNIQUE NOT NULL COMMENT 'Address email',
+    `password` VARCHAR(60) NOT NULL COMMENT 'Password',
 	`created_at` TIMESTAMP DEFAULT NOW() COMMENT 'Date of creation.')
 ENGINE = InnoDB
 COMMENT = 'Table containing user information.' ;
@@ -20,7 +23,6 @@ CREATE TABLE IF NOT EXISTS `ticket_selling_platform`.`events` (
   `name` VARCHAR(45) NULL COMMENT 'Event name.',
   `description` TEXT NULL COMMENT 'Event description.',
   `datetime_of_event` DATETIME NOT NULL COMMENT 'Date and time of the event.',
-  `tickets_qty` INT NOT NULL COMMENT 'Max quantity of tickets for event',
   `created_at` TIMESTAMP DEFAULT NOW() COMMENT 'Date of creation.')
 ENGINE = InnoDB
 COMMENT = 'Table containing events information.' ;
@@ -29,8 +31,9 @@ COMMENT = 'Table containing events information.' ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ticket_selling_platform`.`tickets` (
   `id` INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Primary key of the table',
-  `price` VARCHAR(45) NULL COMMENT 'Event price.',
   `event_id` INT NOT NULL COMMENT 'Event id.',
+  `price` VARCHAR(45) NULL COMMENT 'Event price.',
+  `max_tickets_qty` INT NOT NULL COMMENT 'Max quantity of tickets for event',
   `created_at` TIMESTAMP DEFAULT NOW() COMMENT 'Date of creation.')
 ENGINE = InnoDB
 COMMENT = 'Table containing price information.';
