@@ -20,9 +20,9 @@ public class Ticket {
     @NotNull
     private int price;
 
-    @Column(name = "max_tickets_qty")
+    @Column(name = "max_available_qty")
     @NotNull
-    private int maxTicketQty;
+    private int maxAvailableQty;
 
     @Column(name = "created_at")
     private String createdAt;
@@ -30,11 +30,11 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(int id, @NotNull int eventId, @NotNull int price, @NotNull int maxTicketQty, String createdAt) {
+    public Ticket(int id, @NotNull int eventId, @NotNull int price, @NotNull int maxAvailableQty, String createdAt) {
         this.id = id;
         this.eventId = eventId;
         this.price = price;
-        this.maxTicketQty = maxTicketQty;
+        this.maxAvailableQty = maxAvailableQty;
         this.createdAt = createdAt;
     }
 
@@ -62,12 +62,12 @@ public class Ticket {
         this.price = price;
     }
 
-    public int getMaxTicketQty() {
-        return maxTicketQty;
+    public int getMaxAvailableQty() {
+        return maxAvailableQty;
     }
 
-    public void setMaxTicketQty(int maxTicketQty) {
-        this.maxTicketQty = maxTicketQty;
+    public void setMaxAvailableQtyQty(int maxAvailableQty) {
+        this.maxAvailableQty = maxAvailableQty;
     }
 
     public String getCreatedAt() {
@@ -80,7 +80,7 @@ public class Ticket {
                 "id=" + id +
                 ", eventId=" + eventId +
                 ", price=" + price +
-                ", maxTicketQty=" + maxTicketQty +
+                ", maxTicketQty=" + maxAvailableQty +
                 ", createdAt='" + createdAt + '\'' +
                 '}';
     }
